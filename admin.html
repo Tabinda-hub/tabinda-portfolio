@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin Dashboard - Tabinda Samar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 750px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            color: #fff;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #00f2fe; font-weight: 600; }
+        .form-group input[type="text"], .form-group textarea, .form-group input[type="file"] {
+            width: 100%; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(5, 8, 17, 0.6);
+            border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 1rem; box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #00f2fe; }
+        .help-text { font-size: 0.85rem; color: #94a3b8; margin-top: 0.3rem; }
+        .submit-btn {
+            width: 100%; padding: 1rem; background: linear-gradient(135deg, #00f2fe, #9d4edd);
+            border: none; border-radius: 12px; color: #000; font-weight: 700; font-size: 1.1rem;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: Add Projects & Upload Screenshots -->
+    <div class="admin-container">
+        <h2 style="margin-bottom: 1.5rem; text-align: center;"><i class="fa-solid fa-plus-circle"></i> Add New Project & Upload Screenshots</h2>
+        <form id="project-form">
+            <div class="form-group">
+                <label>Project Title</label>
+                <input type="text" id="title" placeholder="e.g. New E-Commerce Web App" required>
+            </div>
+            <div class="form-group">
+                <label>Category Tag</label>
+                <input type="text" id="tag" placeholder="e.g. WordPress / React / Python" required>
+            </div>
+            <div class="form-group">
+                <label>Main Cover Screenshot (Upload File OR Folder Path)</label>
+                <input type="file" id="cover-file" accept="image/*">
+                <input type="text" id="cover-path" placeholder="OR enter path: e.g., images/Velora/Velora 1.png" style="margin-top: 8px;">
+            </div>
+            <div class="form-group">
+                <label>Upload Gallery Screenshots / Select Entire Folder</label>
+                <!-- Added webkitdirectory and directory to allow folder selection -->
+                <input type="file" id="gallery-files" accept="image/*" multiple webkitdirectory directory>
+                <p class="help-text">Aap ek saath multiple images select kar sakti hain ya poora folder pick kar sakti hain.</p>
+            </div>
+            <div class="form-group">
+                <label>Project Description</label>
+                <textarea id="description" rows="4" placeholder="Write project overview and features..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Publish Project & Gallery</button>
+        </form>
+    </div>
+
+    <!-- Section 2: Add Certifications -->
+    <div class="admin-container">
+        <h2 style="margin-bottom: 1.5rem; text-align: center;"><i class="fa-solid fa-award"></i> Add New Certification</h2>
+        <form id="cert-form">
+            <div class="form-group">
+                <label>Certification Title</label>
+                <input type="text" id="cert-title" placeholder="e.g. CompTIA Security+ / Web Development" required>
+            </div>
+            <div class="form-group">
+                <label>Issuer / Status</label>
+                <input type="text" id="cert-status" placeholder="e.g. Issued by Coursera / Verified" required>
+            </div>
+            <button type="submit" class="submit-btn" style="background: linear-gradient(135deg, #00f2fe, #38bdf8);">Publish Certification</button>
+        </form>
+    </div>
+
+    <script>
+        
+    document.getElementById('project-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        try {
+            const title = document.getElementById('title').value;
+            const coverFileInput = document.getElementById('cover-file');
+            const coverPathInput = document.getElementById('cover-path').value;
+            const galleryFileInput = document.getElementById('gallery-files');
+
+            const projectId = title.toLowerCase().trim().replace(/[^a-z0-9]/g, '-');
+
+            // Cover Image Path Handle
+            let coverSrc = coverPathInput;
+            if (!coverSrc && coverFileInput.files.length > 0) {
+                // Image Name Path
+                coverSrc = "images/" + coverFileInput.files[0].name;
+            }
+            if (!coverSrc) coverSrc = 'images/default.png';
+
+            // Gallery Images Path Handle (No Base64 to avoid quota error)
+            let galleryArray = [];
+            if (galleryFileInput.files.length > 0) {
+                for (let i = 0; i < galleryFileInput.files.length; i++) {
+                    const file = galleryFileInput.files[i];
+                    if (file.type.startsWith('image/')) {
+                        galleryArray.push("images/" + file.name);
+                    }
+                }
+            } else {
+                galleryArray.push(coverSrc);
+            }
+
+            const newProject = {
+                id: projectId,
+                title: title,
+                tag: document.getElementById('tag').value,
+                mainImg: coverSrc,
+                galleryImages: galleryArray,
+                description: document.getElementById('description').value
+            };
+
+            const existingProjects = JSON.parse(localStorage.getItem('customProjects')) || [];
+            existingProjects.push(newProject);
+            localStorage.setItem('customProjects', JSON.stringify(existingProjects));
+
+            alert('Project successfully published!');
+            window.location.href = 'index.html#projects';
+
+        } catch (error) {
+            console.error("Error saving project:", error);
+            alert("Error: " + error.message);
+        }
+    });
+
+    // Certifications Logic
+    document.getElementById('cert-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const newCert = {
+            title: document.getElementById('cert-title').value,
+            status: document.getElementById('cert-status').value
+        };
+
+        const existingCerts = JSON.parse(localStorage.getItem('custom_certs')) || [];
+        existingCerts.push(newCert);
+        localStorage.setItem('custom_certs', JSON.stringify(existingCerts));
+
+        alert('Certification successfully added!');
+        window.location.href = 'index.html#certifications';
+    });
+
+    </script>
+    
+</body>
+</html>

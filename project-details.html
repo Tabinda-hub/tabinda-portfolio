@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Tabinda Samar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-container { max-width: 1000px; margin: 120px auto 60px; padding: 0 2rem; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: #00f2fe; text-decoration: none; margin-bottom: 2rem; font-weight: 600; }
+        .main-gallery-view { width: 100%; aspect-ratio: 16/9; border-radius: 16px; object-fit: cover; margin-bottom: 1.5rem; border: 1px solid rgba(0,242,254,0.3); }
+        .thumbs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; margin-bottom: 2.5rem; }
+        .thumb-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.15); transition: all 0.3s ease; }
+        .thumb-img:hover, .thumb-img.active { border-color: #00f2fe; transform: translateY(-2px); box-shadow: 0 0 10px rgba(0,242,254,0.4); }
+        .project-meta { background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 16px; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="detail-container">
+        <a href="index.html#projects" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+        
+        <h1 id="proj-title" style="font-size: 2.8rem; margin-bottom: 0.5rem;">Project Title</h1>
+        <p id="proj-tag" style="color: #00f2fe; font-weight: 600; margin-bottom: 2rem;">Tag / Category</p>
+
+        <!-- Gallery Showcase -->
+        <img id="detail-main-img" src="" class="main-gallery-view" alt="Project Preview">
+        <div id="thumbs-container" class="thumbs-grid"></div>
+
+        <!-- Description & Details -->
+        <div class="project-meta">
+            <h2 style="margin-bottom: 1rem; color: #fff;">Project Overview & Features</h2>
+            <p id="proj-desc" style="color: #cbd5e1; line-height: 1.8; font-size: 1.1rem;"></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+    // 1. LocalStorage se custom add kiye hue projects nikalein
+    const customProjects = JSON.parse(localStorage.getItem('customProjects')) || [];
+
+    // 2. Default Static Projects Data
+    const projectsData = {
+        pharmacy: {
+            title: "Pharmacy & Healthcare Platform",
+            tag: "WordPress / WooCommerce",
+            description: "A comprehensive e-commerce platform designed specifically for pharmaceutical and medical supplies. Features intuitive product search, category navigation for vitamins, prescriptions, and health monitoring equipment.",
+            images: [
+                "images/Medicine/Medicine 1.png", "images/Medicine/Medicine 2.png", "images/Medicine/Medicine 3.png",
+                "images/Medicine/Medicine 4.png", "images/Medicine/Medicine 5.png", "images/Medicine/Medicine 6.png", "images/Medicine/Medicine 7.png"
+            ]
+        },
+        velora: {
+            title: "Velora Apparel & Fashion Store",
+            tag: "WordPress / Elementor",
+            description: "Modern fashion storefront designed with soft neutral color palettes and a clean aesthetic. Built using WordPress and Elementor with dynamic container layouts and customized visual banners.",
+            images: [
+                "images/Velora/Velora 1.png", "images/Velora/Velora 2.png", "images/Velora/Velora 3.png",
+                "images/Velora/Velora 4.png", "images/Velora/Velora 5.png", "images/Velora/Velora 6.png",
+                "images/Velora/Velora 7.png", "images/Velora/Velora 8.png"
+            ]
+        },
+        cyberdashboard: {
+            title: "Cyber Threat Intelligence Dashboard",
+            tag: "Power BI / Cybersecurity",
+            description: "An interactive Power BI analytics dashboard created to visualize real-time cyber threat intelligence. Includes monitoring for IP network traffic, threat severity metrics, attack vectors, and risk level breakdown.",
+            images: [
+                "images/Cyber powerBI dashboard/power bi 1.png", "images/Cyber powerBI dashboard/power bi 2.png",
+                "images/Cyber powerBI dashboard/power bi 3.png", "images/Cyber powerBI dashboard/power bi 4.png"
+            ]
+        },
+        calligraphy: {
+            title: "Art & Calligraphy Studio",
+            tag: "WordPress / Elementor",
+            description: "An elegant e-commerce showcase built for handcrafted artwork, calligraphy prints, and artistic wall frames. Features customized hero headers and visual portfolio showcases.",
+            images: [
+                "images/Calligraphy/Calligraphy 1.png", "images/Calligraphy/Calligraphy 2.png", "images/Calligraphy/Calligraphy 3.png",
+                "images/Calligraphy/Calligraphy 4.png", "images/Calligraphy/Calligraphy 5.png", "images/Calligraphy/Calligraphy 6.png", "images/Calligraphy/Calligraphy 7.png"
+            ]
+        }
+    };
+
+    // 3. Dynamic Projects Ko Combined Data Mein Merge Karein
+    customProjects.forEach(proj => {
+        projectsData[proj.id] = {
+            title: proj.title,
+            tag: proj.tag,
+            description: proj.description || "Project details and overview.",
+            images: proj.galleryImages && proj.galleryImages.length > 0 ? proj.galleryImages : [proj.mainImg]
+        };
+    });
+
+    // 4. URL Parameter Se Current Project Load Karein
+    const urlParams = new URLSearchParams(window.location.search);
+    const projId = urlParams.get('id') || 'pharmacy';
+    const project = projectsData[projId] || projectsData['pharmacy'];
+
+    // 5. DOM Elements Update
+    document.getElementById('proj-title').innerText = project.title;
+    document.getElementById('proj-tag').innerText = project.tag;
+    document.getElementById('proj-desc').innerText = project.description;
+    document.getElementById('detail-main-img').src = project.images[0];
+
+    const thumbsContainer = document.getElementById('thumbs-container');
+    thumbsContainer.innerHTML = '';
+
+    // 6. Gallery Thumbnails Loop
+    project.images.forEach((imgSrc, index) => {
+        const imgEl = document.createElement('img');
+        imgEl.src = imgSrc;
+        imgEl.className = `thumb-img ${index === 0 ? 'active' : ''}`;
+        imgEl.onclick = () => {
+            document.getElementById('detail-main-img').src = imgSrc;
+            document.querySelectorAll('.thumb-img').forEach(el => el.classList.remove('active'));
+            imgEl.classList.add('active');
+        };
+        thumbsContainer.appendChild(imgEl);
+    });
+</script>
+</body>
+</html>
