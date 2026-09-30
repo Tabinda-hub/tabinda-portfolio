@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabinda Samar - Portfolio</title>
@@ -325,12 +326,25 @@
         </section>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Tabinda Samar. All rights reserved.</p>
-    </footer>
 
-    <!-- Corrected Path to JS folder -->
-    <script src="js/script.js"></script>
+
+   <!-- Footer Section (Without Border Line) -->
+<footer style="background-color: #0a192f; color: #8892b0; text-align: center; padding: 2.5rem 1rem; border-top: none; width: 100%; position: relative; z-index: 99; margin-top: 4rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <p style="margin-bottom: 1rem; font-size: 1rem; color: #e6f1ff;">Designed & Built by <span style="color: #64ffda; font-weight: 600;">Tabinda Samar</span></p>
+        
+        <!-- Social Links -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 1.2rem; font-size: 1.4rem;">
+            <a href="https://github.com/" target="_blank" style="color: #8892b0; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#64ffda'" onmouseout="this.style.color='#8892b0'"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/tabinda-samar-846a65338/" target="_blank" style="color: #8892b0; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#64ffda'" onmouseout="this.style.color='#8892b0'"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:tabinda.samar123@gmail.com" style="color: #8892b0; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#64ffda'" onmouseout="this.style.color='#8892b0'"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #8892b0; margin: 0;">&copy; 2026 Tabinda Samar. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Corrected Path to JS folder (Loaded at the very end before </body>) -->
+<script src="js/script.js"></script>
 </body>
 </html>

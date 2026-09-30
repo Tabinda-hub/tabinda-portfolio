@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Tabinda Samar</title>
@@ -179,24 +180,7 @@
     </style>
 </head>
 <body>
-<!-- Header Navigation -->
-    <header>
-        <h1>Tabinda <span>Samar</span></h1>
-        <nav>
-            <ul>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="index.html" class="btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;"><i class="fa-solid fa-globe"></i> View Site</a></li>
-                <li>
-                    <button onclick="logoutAdmin()" class="btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem; cursor: pointer; background: transparent; border: 1px solid #64ffda; color: #64ffda; border-radius: 6px;">
-                        <i class="fa-solid fa-right-from-bracket"></i> Logout
-                    </button>
-                </li>
-            </ul>
-        </nav>
-    </header>
+
     <div class="admin-container">
         <div class="admin-header">
             <h1><i class="fa-solid fa-gauge-high" style="color: #64ffda; margin-right: 10px;"></i> Portfolio Admin Dashboard</h1>
@@ -335,5 +319,20 @@
         // Initial Table Render
         renderAdminTable();
     </script>
+    <!-- Footer Section -->
+<footer style="background: #0a192f; color: #8892b0; text-align: center; padding: 2rem 1rem; border-top: 1px solid #233554; margin-top: 3rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <p style="margin-bottom: 0.8rem;">Designed & Built by <span style="color: #64ffda; font-weight: 600;">Tabinda Samar</span></p>
+        
+        <!-- Social Icons / Links -->
+        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; font-size: 1.2rem;">
+            <a href="https://github.com/" target="_blank" style="color: #8892b0; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#64ffda'" onmouseout="this.style.color='#8892b0'"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/tabinda-samar-846a65338/" target="_blank" style="color: #8892b0; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#64ffda'" onmouseout="this.style.color='#8892b0'"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:tabinda.samar123@gmail.com" style="color: #8892b0; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#64ffda'" onmouseout="this.style.color='#8892b0'"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #4a5568;">&copy; 2026 Tabinda Samar. All rights reserved.</p>
+    </div>
+</footer>
 </body>
 </html>
