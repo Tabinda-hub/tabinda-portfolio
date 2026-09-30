@@ -3,172 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabinda Samar | CS Student & Web Developer | Aspiring Cybersecurity Specialist</title>
+    <title>Tabinda Samar - Portfolio</title>
+    <!-- Corrected Path to CSS folder -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <canvas id="particles-canvas"></canvas>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="logo">Tabinda<span class="highlight">.Samar</span></a>
-            <ul class="nav-links">
+    <!-- Header Navigation -->
+    <header>
+        <h1>Tabinda <span>Samar</span></h1>
+        <nav>
+            <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#video-projects">Video Demos</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="admin.html" class="admin-link"><i class="fa-solid fa-user-gear"></i> Admin</a></li>
+                <li><a href="admin.html" class="btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">Admin</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <h1 class="glitch-text">Tabinda Samar</h1>
-            <p class="subtitle">CS Student & Web Developer | Aspiring Cybersecurity Specialist</p>
-            <p class="hero-desc">Crafting secure, responsive, and aesthetically pleasing web experiences while exploring cybersecurity, data analytics, and digital intelligence.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn primary-btn"><i class="fa-solid fa-code"></i> View Projects</a>
-                <a href="#contact" class="btn secondary-btn"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
-            </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/tabinda-samar-846a65338" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            </div>
+    <section class="hero">
+        <h2>Tabinda <span class="highlight">Samar</span></h2>
+        <div class="subtitle">CS Student & Web Developer | Aspiring Cybersecurity Specialist</div>
+        <p>
+            Crafting secure, responsive, and aesthetically pleasing web experiences while exploring cybersecurity, data analytics, and digital intelligence.
+        </p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">&lt;/&gt; View Projects</a>
+            <a href="#contact" class="btn-secondary">Get in Touch</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-card glass-card">
-            <p>I am a Computer Science major currently in my 4th semester, driven by a passion for clean web architecture, intuitive visual presentation, and digital asset security. My journey encompasses building custom e-commerce interfaces, WordPress/Elementor solutions, C++ console software, Python applications, and interactive Power BI data analytics dashboards.</p>
-        </div>
-    </section>
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-box">
+                I am a Computer Science major currently in my 4th semester, driven by a passion for clean web architecture, intuitive visual presentation, and digital asset security. My journey encompasses building custom e-commerce interfaces, WordPress/Elementor solutions, C++ console software, Python applications, and interactive Power BI data analytics dashboards.
+            </div>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card glass-card">
-                <i class="fa-solid fa-globe skill-icon"></i>
-                <h3>Web Development</h3>
-                <p>WordPress, Elementor, WooCommerce, HTML5, CSS3, JavaScript, React JS basics</p>
+        <!-- Technical Expertise Section -->
+        <section id="skills">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="expertise-grid">
+                <div class="card">
+                    <div class="card-title">🌐 Web Development</div>
+                    <div class="card-description">
+                        WordPress, Elementor, WooCommerce, HTML5, CSS3, JavaScript, React JS basics.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🛡️ Cybersecurity & Programming</div>
+                    <div class="card-description">
+                        C++, Python (customtkinter), Java, Network Scanning concepts, Threat Intelligence.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">📊 Data & Systems</div>
+                    <div class="card-description">
+                        SQL Server Management Studio (SSMS), SQL Relational Schemas, Power BI Dashboards.
+                    </div>
+                </div>
             </div>
-            <div class="skill-card glass-card">
-                <i class="fa-solid fa-shield-halved skill-icon"></i>
-                <h3>Cybersecurity & Programming</h3>
-                <p>C++, Python (customtkinter), Java, Network Scanning concepts, Threat Intelligence</p>
-            </div>
-            <div class="skill-card glass-card">
-                <i class="fa-solid fa-chart-pie skill-icon"></i>
-                <h3>Data & Systems</h3>
-                <p>SQL Server Management Studio (SSMS), SQL Relational Schemas, Power BI Dashboards</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-   <!-- Projects Section -->
-<section id="projects" class="projects-section">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
+        <!-- Web & Design Projects Section -->
+       <!-- Featured Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Card 1: Pharmacy Store -->
+                <div class="project-card">
+                    <img src="images/Medicine/Medicine 1.png" alt="Pharmacy Store">
+                    <div class="card-title">Pharmacy & Healthcare Platform</div>
+                    <div class="card-description">
+                        Custom e-commerce store with medical inventory categories, responsive product cards, and checkout flow.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">WordPress</span>
+                        <span class="tag">WooCommerce</span>
+                    </div>
+                    <a href="project-details.html?project=medicine" class="btn-secondary" style="margin-top: 1rem; text-align: center;">View Project Details &rarr;</a>
+                </div>
+
+                <!-- Card 2: Velora Fashion -->
+                <div class="project-card">
+                    <img src="images/Velora/Velora 1.png" alt="Velora Fashion">
+                    <div class="card-title">Velora Apparel & Fashion Store</div>
+                    <div class="card-description">
+                        Modern apparel storefront with neutral color palettes, dynamic hero sections, and mobile shopping experience.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">WordPress</span>
+                        <span class="tag">Elementor</span>
+                    </div>
+                    <a href="project-details.html?project=velora" class="btn-secondary" style="margin-top: 1rem; text-align: center;">View Project Details &rarr;</a>
+                </div>
+
+                <!-- Card 3: Cyber PowerBI Dashboard -->
+                <div class="project-card">
+                    <img src="images/Cyber powerBI dashboard/power bi 1.png" alt="Cyber Threat Intelligence Dashboard">
+                    <div class="card-title">Cyber Threat Intelligence Dashboard</div>
+                    <div class="card-description">
+                        Real-time network traffic & threat analytics monitoring dashboard built using Power BI & security metrics.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Cybersecurity</span>
+                    </div>
+                    <a href="project-details.html?project=powerbi" class="btn-secondary" style="margin-top: 1rem; text-align: center;">View Project Details &rarr;</a>
+                </div>
+
+                
+<!-- Project Card: Calligraphy & Hand Lettering -->
+<div class="project-card">
+    <img src="images/Calligraphy/Calligraphy 1.png" alt="Calligraphy & Hand Lettering">
+    <div class="card-title">Calligraphy & Hand Lettering Store</div>
+    <div class="card-description">
+        Artistic showcase & custom lettering website featuring handcrafted artworks, product gallery, and booking request forms.
+    </div>
+    <div class="tags">
+        <span class="tag">WordPress</span>
+        <span class="tag">Elementor</span>
+    </div>
+    <a href="project-details.html?project=calligraphy" class="btn-secondary" style="margin-top: 1rem; text-align: center;">View Project Details &rarr;</a>
+</div>
+
+<!-- Project Card: HomeSpire Interior Design -->
+<div class="project-card">
+    <img src="images/homespire/Homespire 1.png" alt="HomeSpire Interior Design">
+    <div class="card-title">HomeSpire Interior Design</div>
+    <div class="card-description">
+        Refined interior design & architectural landing page built for space planning, luxury living aesthetics, and consultation queries.
+    </div>
+    <div class="tags">
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">Web Design</span>
+    </div>
+    <a href="project-details.html?project=homespire" class="btn-secondary" style="margin-top: 1rem; text-align: center;">View Project Details &rarr;</a>
+</div>
+            </div>
+        </section>
+
+        <!-- Academic Video Projects Section -->
+        <section id="video-projects">
+            <h2 class="section-title">Academic Video Projects</h2>
+            
+            <div class="projects-grid">
+                
+                <!-- 1. Cafeteria Management System (OOP Project) -->
+                <div class="card">
+                    <div class="card-title">Cafeteria Management System (OOP)</div>
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/Cafeteria Management System.mp4" type="video/mp4">
+                            <source src="videos/Cafeteria Management System.mkv" type="video/mkv">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="card-description">
+                        An Object-Oriented Programming (OOP) project managing cafeteria orders, menu configuration, and sales reporting.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">OOP Project</span>
+                        <span class="tag">Management System</span>
+                    </div>
+                </div>
+
+                <!-- 2. Course Registration System (DSA Project) -->
+                <div class="card">
+                    <div class="card-title">Course Registration System (DSA)</div>
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/Course Registration System.mp4" type="video/mp4">
+                            <source src="videos/Course Registration System.mkv" type="video/mkv">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="card-description">
+                        A Data Structures and Algorithms (DSA) application demonstrating student course enrollment and data sorting.
+                    </div>
+                    <div class="tags">
+                        <span class="tag">DSA Project</span>
+                        <span class="tag">Algorithms</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+<!-- Certificates Section -->
+<section id="certificates" class="certificates-section" style="padding: 4rem 1.5rem; max-width: 1200px; margin: 0 auto;">
+    <h2 style="color: #e6f1ff; font-size: 2rem; margin-bottom: 0.5rem;">
+        <span style="color: #64ffda;">03.</span> Certifications & Accomplishments
+    </h2>
+    <p style="color: #8892b0; margin-bottom: 2rem;">Professional certifications, competition achievements, and technical credentials.</p>
+
+    <div class="certificates-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem;">
         
-        <!-- 1. Pharmacy / Medicine Project -->
-        <div class="project-card glass-card">
-            <div class="project-img-wrapper">
-                <img src="images/Medicine/Medicine 1.png" alt="Pharmacy Platform" class="project-main-img">
-            </div>
-            <div class="card-header"><span class="tag">WordPress / WooCommerce</span></div>
-            <h3>Pharmacy & Healthcare Platform</h3>
-            <ul class="project-bullets">
-                <li><i class="fa-solid fa-angle-right"></i> Custom e-commerce store with medical inventory categories.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Fully responsive product cards & secure checkout flow.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Optimized layout for pharmaceutical visual identity.</li>
-            </ul>
-            <a href="project-details.html?id=pharmacy" class="btn-view-project">View Project Details <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Certificate 1: IT Audit BDO Internship -->
+        <div class="project-card" style="background: #112240; border-radius: 12px; padding: 1.2rem; border: 1px solid rgba(100, 255, 218, 0.15);">
+            <a href="images/Certificates/IT audit BDO internship.pdf" target="_blank" style="text-decoration: none; display: block;">
+                <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                    <embed src="images/Certificates/IT audit BDO internship.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" style="border: none;" />
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer;"></div>
+                </div>
+            </a>
+            <h3 style="color: #e6f1ff; font-size: 1.2rem; margin-bottom: 0.5rem;">IT Audit Internship</h3>
+            <p style="color: #64ffda; font-size: 0.85rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-briefcase"></i> BDO Pakistan</p>
+            <a href="images/Certificates/IT audit BDO internship.pdf" target="_blank" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; border: 1px solid #64ffda; color: #64ffda; text-decoration: none; padding: 0.5rem; border-radius: 6px;">Open Full PDF &rarr;</a>
         </div>
 
-        <!-- 2. Velora Fashion Project -->
-        <div class="project-card glass-card">
-            <div class="project-img-wrapper">
-                <img src="images/Velora/Velora 1.png" alt="Velora Fashion Store" class="project-main-img">
-            </div>
-            <div class="card-header"><span class="tag">WordPress / Elementor</span></div>
-            <h3>Velora Apparel & Fashion Store</h3>
-            <ul class="project-bullets">
-                <li><i class="fa-solid fa-angle-right"></i> Modern apparel storefront with neutral color palettes.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Dynamic hero sections and featured collection grids.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Optimized for desktop and mobile shopping user experience.</li>
-            </ul>
-            <a href="project-details.html?id=velora" class="btn-view-project">View Project Details <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Certificate 2: Software Development -->
+        <div class="project-card" style="background: #112240; border-radius: 12px; padding: 1.2rem; border: 1px solid rgba(100, 255, 218, 0.15);">
+            <a href="images/Certificates/Software development.pdf" target="_blank" style="text-decoration: none; display: block;">
+                <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                    <embed src="images/Certificates/Software development.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" style="border: none;" />
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer;"></div>
+                </div>
+            </a>
+            <h3 style="color: #e6f1ff; font-size: 1.2rem; margin-bottom: 0.5rem;">Software Development</h3>
+            <p style="color: #64ffda; font-size: 0.85rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-award"></i> Professional Credential</p>
+            <a href="images/Certificates/Software development.pdf" target="_blank" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; border: 1px solid #64ffda; color: #64ffda; text-decoration: none; padding: 0.5rem; border-radius: 6px;">Open Full PDF &rarr;</a>
         </div>
 
-        <!-- 3. Cyber Power BI Dashboard -->
-        <div class="project-card glass-card">
-            <div class="project-img-wrapper">
-                <img src="images/Cyber powerBI dashboard/power bi 1.png" alt="Cyber Dashboard" class="project-main-img">
-            </div>
-            <div class="card-header"><span class="tag">Power BI / Cybersecurity</span></div>
-            <h3>Cyber Threat Intelligence Dashboard</h3>
-            <ul class="project-bullets">
-                <li><i class="fa-solid fa-angle-right"></i> Real-time network traffic & threat analytics monitoring.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Interactive data visualizer for attack vectors & risk scores.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Security metrics summary for incident response teams.</li>
-            </ul>
-            <a href="project-details.html?id=cyberdashboard" class="btn-view-project">View Project Details <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Certificate 3: Coder's Clash 2026 -->
+        <div class="project-card" style="background: #112240; border-radius: 12px; padding: 1.2rem; border: 1px solid rgba(100, 255, 218, 0.15);">
+            <a href="images/Certificates/coder's clash 2026.pdf" target="_blank" style="text-decoration: none; display: block;">
+                <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                    <embed src="images/Certificates/coder's clash 2026.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" style="border: none;" />
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer;"></div>
+                </div>
+            </a>
+            <h3 style="color: #e6f1ff; font-size: 1.2rem; margin-bottom: 0.5rem;">Coder's Clash 2026</h3>
+            <p style="color: #64ffda; font-size: 0.85rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-trophy"></i> Programming Competition</p>
+            <a href="images/Certificates/coder's clash 2026.pdf" target="_blank" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; border: 1px solid #64ffda; color: #64ffda; text-decoration: none; padding: 0.5rem; border-radius: 6px;">Open Full PDF &rarr;</a>
         </div>
 
-        <!-- 4. Calligraphy Studio -->
-        <div class="project-card glass-card">
-            <div class="project-img-wrapper">
-                <img src="images/Calligraphy/Calligraphy 1.png" alt="Calligraphy Studio" class="project-main-img">
-            </div>
-            <div class="card-header"><span class="tag">WordPress / Elementor</span></div>
-            <h3>Art & Calligraphy Studio</h3>
-            <ul class="project-bullets">
-                <li><i class="fa-solid fa-angle-right"></i> Artistic hand-lettering & custom artwork showcase store.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Elegant product presentation with custom typography.</li>
-                <li><i class="fa-solid fa-angle-right"></i> Seamless browsing experience with clear navigation.</li>
-            </ul>
-            <a href="project-details.html?id=calligraphy" class="btn-view-project">View Project Details <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- Certificate 4: Coder's Clash 2025 -->
+        <div class="project-card" style="background: #112240; border-radius: 12px; padding: 1.2rem; border: 1px solid rgba(100, 255, 218, 0.15);">
+            <a href="images/Certificates/coder's clash 2025.pdf" target="_blank" style="text-decoration: none; display: block;">
+                <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                    <embed src="images/Certificates/coder's clash 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" style="border: none;" />
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer;"></div>
+                </div>
+            </a>
+            <h3 style="color: #e6f1ff; font-size: 1.2rem; margin-bottom: 0.5rem;">Coder's Clash 2025</h3>
+            <p style="color: #64ffda; font-size: 0.85rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-trophy"></i> Programming Competition</p>
+            <a href="images/Certificates/coder's clash 2025.pdf" target="_blank" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; border: 1px solid #64ffda; color: #64ffda; text-decoration: none; padding: 0.5rem; border-radius: 6px;">Open Full PDF &rarr;</a>
+        </div>
+
+        <!-- Certificate 5: Intro to Information System Components -->
+        <div class="project-card" style="background: #112240; border-radius: 12px; padding: 1.2rem; border: 1px solid rgba(100, 255, 218, 0.15);">
+            <a href="images/Certificates/Introduction to Information System Components.pdf" target="_blank" style="text-decoration: none; display: block;">
+                <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                    <embed src="images/Certificates/Introduction to Information System Components.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" style="border: none;" />
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer;"></div>
+                </div>
+            </a>
+            <h3 style="color: #e6f1ff; font-size: 1.2rem; margin-bottom: 0.5rem;">Intro to Info System Controls</h3>
+            <p style="color: #64ffda; font-size: 0.85rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-shield-halved"></i> Cybersecurity / Audit</p>
+            <a href="images/Certificates/Introduction to Information System Components.pdf" target="_blank" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; border: 1px solid #64ffda; color: #64ffda; text-decoration: none; padding: 0.5rem; border-radius: 6px;">Open Full PDF &rarr;</a>
+        </div>
+
+        <!-- Certificate 6: Assessment Of ITGCs -->
+        <div class="project-card" style="background: #112240; border-radius: 12px; padding: 1.2rem; border: 1px solid rgba(100, 255, 218, 0.15);">
+            <a href="images/Certificates/Assessment Of ITGCs.pdf" target="_blank" style="text-decoration: none; display: block;">
+                <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                    <embed src="images/Certificates/Assessment Of ITGCs.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" style="border: none;" />
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer;"></div>
+                </div>
+            </a>
+            <h3 style="color: #e6f1ff; font-size: 1.2rem; margin-bottom: 0.5rem;">Assessment Of ITGCs</h3>
+            <p style="color: #64ffda; font-size: 0.85rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-list-check"></i> IT Governance & Controls</p>
+            <a href="images/Certificates/Assessment Of ITGCs.pdf" target="_blank" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; border: 1px solid #64ffda; color: #64ffda; text-decoration: none; padding: 0.5rem; border-radius: 6px;">Open Full PDF &rarr;</a>
+        </div>
+
+        <!-- Certificate 7: Auditing Journal Entries -->
+        <div class="project-card" style="background: #112240; border-radius: 12px; padding: 1.2rem; border: 1px solid rgba(100, 255, 218, 0.15);">
+            <a href="images/Certificates/Auditing Journal Entries.pdf" target="_blank" style="text-decoration: none; display: block;">
+                <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                    <embed src="images/Certificates/Auditing Journal Entries.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" style="border: none;" />
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer;"></div>
+                </div>
+            </a>
+            <h3 style="color: #e6f1ff; font-size: 1.2rem; margin-bottom: 0.5rem;">Auditing Journal Entries</h3>
+            <p style="color: #64ffda; font-size: 0.85rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-receipt"></i> Information Systems Audit</p>
+            <a href="images/Certificates/Auditing Journal Entries.pdf" target="_blank" class="btn-secondary" style="display: block; text-align: center; margin-top: 1rem; border: 1px solid #64ffda; color: #64ffda; text-decoration: none; padding: 0.5rem; border-radius: 6px;">Open Full PDF &rarr;</a>
         </div>
 
     </div>
 </section>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </section>
+    </div>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications-section">
-        <h2 class="section-title">Credentials & Certifications</h2>
-        <div class="cert-grid" style="grid-template-columns: 1fr; max-width: 650px; margin: 0 auto;">
-            <div class="cert-glass glass-card">
-                <h3><i class="fa-solid fa-award"></i> Professional Certifications</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check-circle" style="color: #00f2fe;"></i> Introduction to Information System Components</li>
-                    <li><i class="fa-solid fa-clock" style="color: #38bdf8;"></i> Cybersecurity Threat Assessment Internship </li>
-                    <li><i class="fa-solid fa-clock" style="color: #38bdf8;"></i> IT Audit & Compliance Certificate </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-card glass-card">
-            <p>Interested in collaborating or discussing web development and cybersecurity projects? Reach out!</p>
-            <a href="https://www.linkedin.com/in/tabinda-samar-846a65338" target="_blank" class="btn primary-btn"><i class="fa-brands fa-linkedin"></i> Connect on LinkedIn</a>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Tabinda Samar. All rights reserved.</p>
     </footer>
 
+    <!-- Corrected Path to JS folder -->
     <script src="js/script.js"></script>
-    
 </body>
 </html>

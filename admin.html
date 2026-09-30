@@ -3,158 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Admin Dashboard - Tabinda Samar</title>
+    <title>Admin Dashboard - Tabinda Samar</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .admin-container {
-            max-width: 750px;
+            max-width: 1200px;
             margin: 2rem auto;
-            padding: 2.5rem;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            color: #fff;
+            padding: 0 1.5rem;
         }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: #00f2fe; font-weight: 600; }
-        .form-group input[type="text"], .form-group textarea, .form-group input[type="file"] {
-            width: 100%; padding: 0.8rem 1rem; border-radius: 10px; background: rgba(5, 8, 17, 0.6);
-            border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 1rem; box-sizing: border-box;
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            padding-bottom: 1rem;
         }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #00f2fe; }
-        .help-text { font-size: 0.85rem; color: #94a3b8; margin-top: 0.3rem; }
-        .submit-btn {
-            width: 100%; padding: 1rem; background: linear-gradient(135deg, #00f2fe, #9d4edd);
-            border: none; border-radius: 12px; color: #000; font-weight: 700; font-size: 1.1rem;
-            cursor: pointer; transition: all 0.3s ease;
+
+        .admin-header h1 {
+            color: #e6f1ff;
+            font-size: 2rem;
         }
-        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background-color: #112240;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: #64ffda;
+        }
+
+        .stat-info h3 {
+            color: #8892b0;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .stat-info span {
+            color: #e6f1ff;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-card, .table-card {
+            background-color: #112240;
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-card h2, .table-card h2 {
+            color: #e6f1ff;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #8892b0;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            background-color: #0a192f;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            color: #e6f1ff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #64ffda;
+        }
+
+        .btn-submit {
+            background-color: transparent;
+            color: #64ffda;
+            border: 1px solid #64ffda;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .project-table th, .project-table td {
+            padding: 0.9rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-table th {
+            color: #64ffda;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .project-table td {
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+
+        .btn-danger {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.3rem 0.6rem;
+            transition: color 0.2s ease;
+        }
+
+        .btn-danger:hover {
+            color: #ff5252;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Section 1: Add Projects & Upload Screenshots -->
+    <!-- Header Navigation -->
+    <header>
+        <h1>Tabinda <span>Samar</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" class="btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;"><i class="fa-solid fa-globe"></i> View Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="admin-container">
-        <h2 style="margin-bottom: 1.5rem; text-align: center;"><i class="fa-solid fa-plus-circle"></i> Add New Project & Upload Screenshots</h2>
-        <form id="project-form">
-            <div class="form-group">
-                <label>Project Title</label>
-                <input type="text" id="title" placeholder="e.g. New E-Commerce Web App" required>
+        <div class="admin-header">
+            <h1><i class="fa-solid fa-gauge-high" style="color: #64ffda; margin-right: 10px;"></i> Portfolio Admin Dashboard</h1>
+        </div>
+
+        <!-- Dashboard Statistics -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-folder-open"></i></div>
+                <div class="stat-info">
+                    <h3>Total Projects</h3>
+                    <span id="stat-total">4</span>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Category Tag</label>
-                <input type="text" id="tag" placeholder="e.g. WordPress / React / Python" required>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="stat-info">
+                    <h3>Active Categories</h3>
+                    <span>3</span>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Main Cover Screenshot (Upload File OR Folder Path)</label>
-                <input type="file" id="cover-file" accept="image/*">
-                <input type="text" id="cover-path" placeholder="OR enter path: e.g., images/Velora/Velora 1.png" style="margin-top: 8px;">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-eye"></i></div>
+                <div class="stat-info">
+                    <h3>Status</h3>
+                    <span style="font-size: 1.2rem; color: #64ffda;">Live & Syncing</span>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Upload Gallery Screenshots / Select Entire Folder</label>
-                <!-- Added webkitdirectory and directory to allow folder selection -->
-                <input type="file" id="gallery-files" accept="image/*" multiple webkitdirectory directory>
-                <p class="help-text">Aap ek saath multiple images select kar sakti hain ya poora folder pick kar sakti hain.</p>
+        </div>
+
+        <!-- Dashboard Content Grid -->
+        <div class="dashboard-grid">
+            <!-- Add / Edit Project Form -->
+            <div class="form-card">
+                <h2><i class="fa-solid fa-plus-circle"></i> Add New Project</h2>
+                <form id="add-project-form">
+                    <div class="form-group">
+                        <label for="p-title">Project Title</label>
+                        <input type="text" id="p-title" placeholder="e.g. Modern E-Commerce Store" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-category">Category</label>
+                        <select id="p-category" required>
+                            <option value="WordPress / Elementor">WordPress / Elementor</option>
+                            <option value="WordPress / WooCommerce">WordPress / WooCommerce</option>
+                            <option value="UI/UX Design / Web Design">UI/UX Design / Web Design</option>
+                            <option value="Power BI / Cybersecurity">Power BI / Cybersecurity</option>
+                            <option value="Web Development">Web Development</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-desc">Description</label>
+                        <textarea id="p-desc" rows="4" placeholder="Brief project overview and tech stack..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-image">Main Cover Image Path</label>
+                        <input type="text" id="p-image" placeholder="images/Calligraphy/Calligraphy 1.png" required>
+                    </div>
+                    <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Add Project</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label>Project Description</label>
-                <textarea id="description" rows="4" placeholder="Write project overview and features..." required></textarea>
+
+            <!-- Manage Active Projects Table -->
+            <div class="table-card">
+                <h2><i class="fa-solid fa-list-check"></i> Manage Projects</h2>
+                <div style="overflow-x: auto;">
+                    <table class="project-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projects-list-body">
+                            <!-- Rendered dynamically -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <button type="submit" class="submit-btn">Publish Project & Gallery</button>
-        </form>
+        </div>
     </div>
 
-    <!-- Section 2: Add Certifications -->
-    <div class="admin-container">
-        <h2 style="margin-bottom: 1.5rem; text-align: center;"><i class="fa-solid fa-award"></i> Add New Certification</h2>
-        <form id="cert-form">
-            <div class="form-group">
-                <label>Certification Title</label>
-                <input type="text" id="cert-title" placeholder="e.g. CompTIA Security+ / Web Development" required>
-            </div>
-            <div class="form-group">
-                <label>Issuer / Status</label>
-                <input type="text" id="cert-status" placeholder="e.g. Issued by Coursera / Verified" required>
-            </div>
-            <button type="submit" class="submit-btn" style="background: linear-gradient(135deg, #00f2fe, #38bdf8);">Publish Certification</button>
-        </form>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Tabinda Samar. All rights reserved.</p>
+    </footer>
 
     <script>
-        
-    document.getElementById('project-form').addEventListener('submit', (e) => {
-        e.preventDefault();
+        // Sample Portfolio Projects Manager Script
+        const adminProjects = [
+            { id: 1, title: "Calligraphy Store", category: "WordPress / Elementor" },
+            { id: 2, title: "Pharmacy Platform", category: "WordPress / WooCommerce" },
+            { id: 3, title: "Velora Apparel Store", category: "WordPress / Elementor" },
+            { id: 4, title: "Cyber Threat Dashboard", category: "Power BI / Cybersecurity" }
+        ];
 
-        try {
-            const title = document.getElementById('title').value;
-            const coverFileInput = document.getElementById('cover-file');
-            const coverPathInput = document.getElementById('cover-path').value;
-            const galleryFileInput = document.getElementById('gallery-files');
+        function renderAdminTable() {
+            const tableBody = document.getElementById('projects-list-body');
+            tableBody.innerHTML = '';
 
-            const projectId = title.toLowerCase().trim().replace(/[^a-z0-9]/g, '-');
+            adminProjects.forEach((proj, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="color: #e6f1ff; font-weight: 500;">${proj.title}</td>
+                    <td>${proj.category}</td>
+                    <td>
+                        <button class="btn-danger" onclick="deleteProject(${index})" title="Delete Project"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
 
-            // Cover Image Path Handle
-            let coverSrc = coverPathInput;
-            if (!coverSrc && coverFileInput.files.length > 0) {
-                // Image Name Path
-                coverSrc = "images/" + coverFileInput.files[0].name;
-            }
-            if (!coverSrc) coverSrc = 'images/default.png';
-
-            // Gallery Images Path Handle (No Base64 to avoid quota error)
-            let galleryArray = [];
-            if (galleryFileInput.files.length > 0) {
-                for (let i = 0; i < galleryFileInput.files.length; i++) {
-                    const file = galleryFileInput.files[i];
-                    if (file.type.startsWith('image/')) {
-                        galleryArray.push("images/" + file.name);
-                    }
-                }
-            } else {
-                galleryArray.push(coverSrc);
-            }
-
-            const newProject = {
-                id: projectId,
-                title: title,
-                tag: document.getElementById('tag').value,
-                mainImg: coverSrc,
-                galleryImages: galleryArray,
-                description: document.getElementById('description').value
-            };
-
-            const existingProjects = JSON.parse(localStorage.getItem('customProjects')) || [];
-            existingProjects.push(newProject);
-            localStorage.setItem('customProjects', JSON.stringify(existingProjects));
-
-            alert('Project successfully published!');
-            window.location.href = 'index.html#projects';
-
-        } catch (error) {
-            console.error("Error saving project:", error);
-            alert("Error: " + error.message);
+            document.getElementById('stat-total').innerText = adminProjects.length;
         }
-    });
 
-    // Certifications Logic
-    document.getElementById('cert-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const newCert = {
-            title: document.getElementById('cert-title').value,
-            status: document.getElementById('cert-status').value
-        };
+        function deleteProject(index) {
+            if (confirm("Are you sure you want to remove this project?")) {
+                adminProjects.splice(index, 1);
+                renderAdminTable();
+            }
+        }
 
-        const existingCerts = JSON.parse(localStorage.getItem('custom_certs')) || [];
-        existingCerts.push(newCert);
-        localStorage.setItem('custom_certs', JSON.stringify(existingCerts));
+        document.getElementById('add-project-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('p-title').value;
+            const category = document.getElementById('p-category').value;
 
-        alert('Certification successfully added!');
-        window.location.href = 'index.html#certifications';
-    });
+            adminProjects.push({ id: Date.now(), title, category });
+            renderAdminTable();
 
+            this.reset();
+            alert("Project added successfully!");
+        });
+
+        // Initial Table Render
+        renderAdminTable();
     </script>
-    
 </body>
 </html>
