@@ -179,6 +179,15 @@ nav a:hover {
     justify-content: center;
     align-items: center;
 }
+/* Hero Section aur About Me Section ke beech gap kam karne ke liye */
+#hero {
+    min-height: auto !important;
+    padding-bottom: 1rem !important;
+}
+
+#about {
+    padding-top: 1rem !important;
+}
 
 /* Buttons */
 .btn-primary {
@@ -236,7 +245,7 @@ h2.section-title {
     color: var(--primary-text);
 }
 
-/* Cards & Grid Layouts */
+//* Cards & Grid Layouts */
 .about-box {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -248,20 +257,25 @@ h2.section-title {
     line-height: 1.8;
 }
 
+/* Grid layout ko limit kiya hai taake cards extra wide na hon */
 .expertise-grid, .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 420px)); /* Cards maximum 420px wide honge */
     gap: 1.8rem;
+    justify-content: center; /* Cards ko center align karega */
+    align-items: stretch;
 }
 
 .card, .project-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 12px;
-    padding: 1.8rem;
+    padding: 1.5rem;
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .card:hover, .project-card:hover {
@@ -271,7 +285,7 @@ h2.section-title {
 }
 
 .card-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.8rem;
     color: var(--primary-text);
@@ -293,6 +307,27 @@ h2.section-title {
     border: 1px solid var(--card-border);
 }
 
+/* Fixed Video Wrapper */
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+    border: 1px solid var(--card-border);
+    margin: 0.8rem 0 1.2rem 0;
+    flex-shrink: 0;
+}
+
+.video-wrapper video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Video poori dikhegi bina cut hue */
+    display: block;
+    background: #000;
+}
+
+
 /* Badges & Tags */
 .tags {
     display: flex;
@@ -310,26 +345,35 @@ h2.section-title {
     font-size: 0.8rem;
     font-weight: 500;
 }
-
-/* Video Wrapper */
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #000;
-    border: 1px solid var(--card-border);
-    margin-bottom: 1rem;
+.tag {
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+/* Certifications Grid Layout - 1 Line mein 3 Cards */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Har line mein exactly 3 cards honge */
+    gap: 1.8rem;
+    justify-content: center;
+    align-items: stretch;
 }
 
-.video-wrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Tablet aur Mobile screens ke liye Responsive adjustment */
+@media (max-width: 992px) {
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr); /* Medium screens par 2 cards */
+    }
+}
+
+@media (max-width: 600px) {
+    .certifications-grid {
+        grid-template-columns: 1fr; /* Mobile screens par 1 card */
+    }
 }
 
 /* Contact Form */
